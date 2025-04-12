@@ -1,3 +1,9 @@
+import { fetchData } from "../utils/api.js";
+import { state } from "../utils/state.js";
+import { elements } from "../utils/dom.js";
+import { getRandomNumber } from "../utils/helpers.js";
+import { showAlert } from "../utils/alert.js";
+
 export const getTechVideo = async () => {
   const apiKey = state.get("youtubeApiKey", "");
   if (!apiKey) return;
@@ -15,19 +21,25 @@ export const getTechVideo = async () => {
     const videoId = items[getRandomNumber(items.length)].id.videoId;
     let videoContainer = elements.videoContainer;
 
-    // Create container only once and insert it before the button
+    // Create the container only once
     if (!videoContainer) {
       videoContainer = document.createElement("div");
       videoContainer.id = "video-container";
       elements.videoContainer = videoContainer;
 
-      // Insert it before the button
+      // Insert between h3 and button
       elements.youtube.insertBefore(videoContainer, elements.techVideoBtn);
     }
 
-    // Update the video content
+    // Replace video content
     videoContainer.classList.remove("loaded");
-    videoContainer.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>`;
+    videoContainer.innerHTML = `
+      <iframe 
+        src="https://www.youtube.com/embed/${videoId}" 
+        allowfullscreen 
+        frameborder="0"
+      ></iframe>
+    `;
     setTimeout(() => videoContainer.classList.add("loaded"), 10);
 
   } catch (err) {
@@ -35,3 +47,15 @@ export const getTechVideo = async () => {
     showAlert("Something went wrong. Check the console for details.");
   }
 };
+
+export async function initYouTube() {
+  if (!elements.youtube || !elements.techVideoBtn) {
+    console.error("YouTube elements missing");
+    return;
+  }
+
+  elements.techVideoBtn.addEventListener("click", getTechVideo);
+
+  // Load initial video if key is present
+  if (state.get("youtubeApiKey")) await getTechVideo();
+}
