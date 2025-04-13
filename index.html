@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Dashboard you can style for personal preference."
+      content="Customizable personal dashboard for time, weather, links, notes, and more."
     />
     <meta name="author" content="Tom Larsson" />
-    <meta name="keywords" content="Docks, watch, links" />
+
+    <!-- Favicon and App Icons -->
     <link rel="icon" href="public/favicon.ico" type="image/x-icon" />
     <link
       rel="icon"
@@ -24,69 +25,102 @@
     />
     <link rel="apple-touch-icon" href="public/apple-touch-icon.png" />
     <link rel="manifest" href="public/site.webmanifest" />
+
+    <!-- Fonts -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      as="style"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Styles -->
     <link rel="stylesheet" href="styles/styles.css" />
-    <script type="module" src="main.js"></script>
-    <script
-      src="https://kit.fontawesome.com/70f7a209bd.js"
-      crossorigin="anonymous"
-    ></script>
-    <title>The Dashboard</title>
+
+    <title>The Dashboard – Customizable Personal Dashboard</title>
   </head>
   <body>
     <header>
-      <button id="applyApiKeysBtn"><i class="fa-solid fa-key"></i></button>
-      <div class="time-container">
-        <span id="time"></span>
-        <span id="date"></span>
+      <button id="applyApiKeysBtn" type="button" aria-label="Enter API keys">
+        <i class="fa-solid fa-key" aria-hidden="true"></i>
+      </button>
+      <div
+        class="time-container"
+        role="region"
+        aria-label="Current time and date"
+      >
+        <time id="time"></time>
+        <time id="date"></time>
       </div>
     </header>
-    <main>
+
+    <main role="main">
       <section class="welcome-container">
         <h1 id="editable">Welcome User</h1>
       </section>
+
       <section class="dash-containers">
-        <section class="container links">
-          <h2>Shortcuts</h2>
+        <section class="container links" aria-labelledby="shortcuts-title">
+          <h2 id="shortcuts-title">Shortcuts</h2>
           <div class="button-search">
             <input
               type="text"
               id="link-input"
               placeholder="Type a link name (e.g., Google)"
+              aria-label="Add a new shortcut"
             />
-            <button id="add-link-btn"><i class="fa-solid fa-plus"></i></button>
+            <button id="add-link-btn" aria-label="Add link">
+              <i class="fa-solid fa-plus"></i>
+            </button>
           </div>
           <div id="link-container"></div>
         </section>
-        <section class="container" id="weather">
-          <h2>Today Weather</h2>
+
+        <section class="container" id="weather" aria-labelledby="weather-title">
+          <h2 id="weather-title">Today Weather</h2>
         </section>
-        <div class="container" id="youtube">
-          <h2>Random YT Video</h2>
-          <button id="tech-video-btn">Get Random Tech Video</button>
-        </div>
-        <div class="container notes">
-          <label for="notepad">Notes:</label>
+
+        <section class="container" id="youtube" aria-labelledby="youtube-title">
+          <h2 id="youtube-title">Random YT Video</h2>
+          <button
+            id="tech-video-btn"
+            aria-label="Get a random tech YouTube video"
+          >
+            Get Random Tech Video
+          </button>
+        </section>
+
+        <section class="container notes" aria-labelledby="notes-title">
+          <h2 id="notes-title">Notes</h2>
           <textarea
             id="notepad"
             name="notepad"
             placeholder="Write your notes here..."
+            aria-label="Personal notes area"
           ></textarea>
-        </div>
+        </section>
       </section>
     </main>
+
     <footer>
       <div class="random-bg-container">
-        <button id="setWallpaperBtn">
+        <button id="setWallpaperBtn" aria-label="Generate new background">
           <i class="fa-solid fa-rotate-right"></i> Generate new background
         </button>
       </div>
-      <button id="resetBtn">
-        <i class="fa-solid fa-eraser" title="Erase everything"></i>
+      <button id="resetBtn" type="button" aria-label="Reset dashboard settings">
+        <i class="fa-solid fa-eraser" aria-hidden="true"></i>
       </button>
     </footer>
+
+    <!-- Scripts at end for performance -->
+    <script type="module" src="main.js"></script>
+    <script
+      src="https://kit.fontawesome.com/70f7a209bd.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
