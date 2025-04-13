@@ -168,6 +168,7 @@ footer,
   gap: 10px;
   margin-bottom: var(--space-sm);
   transition: opacity 0.4s ease;
+  opacity: 0;
 }
 .day {
   grid-column: 2 / 4;
