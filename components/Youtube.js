@@ -21,17 +21,14 @@ export const getTechVideo = async () => {
     const videoId = items[getRandomNumber(items.length)].id.videoId;
     let videoContainer = elements.videoContainer;
 
-    // Create the container only once
     if (!videoContainer) {
       videoContainer = document.createElement("div");
       videoContainer.id = "video-container";
       elements.videoContainer = videoContainer;
 
-      // Insert between h3 and button
       elements.youtube.insertBefore(videoContainer, elements.techVideoBtn);
     }
 
-    // Replace video content
     videoContainer.classList.remove("loaded");
     videoContainer.innerHTML = `
       <iframe 
@@ -41,7 +38,6 @@ export const getTechVideo = async () => {
       ></iframe>
     `;
     setTimeout(() => videoContainer.classList.add("loaded"), 10);
-
   } catch (err) {
     console.error("Failed to load video:", err);
     showAlert("Something went wrong. Check the console for details.");
@@ -56,6 +52,5 @@ export async function initYouTube() {
 
   elements.techVideoBtn.addEventListener("click", getTechVideo);
 
-  // Load initial video if key is present
   if (state.get("youtubeApiKey")) await getTechVideo();
 }

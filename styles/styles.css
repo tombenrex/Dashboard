@@ -60,11 +60,17 @@ footer,
   grid-template-rows: 550px;
   gap: var(--space-sm);
 }
-.btn-container {
+
+#resetBtn {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  display: flex;
+  bottom: var(--space-md);
+  left: var(--space-md);
+}
+
+#applyApiKeysBtn {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
 }
 
 /* Components */

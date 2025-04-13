@@ -38,25 +38,25 @@ Det här projektet är en modulär webapp som använder sig av JavaScript, HTML 
 
 ## Mina styrkor
 
-Modularisering: Genom att dela upp appen i separata, självständiga filer har jag hållit koden organiserad och lätt att underhålla. Varje fil har ett tydligt ansvarsområde, vilket gör det enklare att hitta och rätta till buggar eller förbättra funktionalitet.
+<strong>Modularisering:</strong> Genom att dela upp appen i separata, självständiga filer har jag hållit koden organiserad och lätt att underhålla. Varje fil har ett tydligt ansvarsområde, vilket gör det enklare att hitta och rätta till buggar eller förbättra funktionalitet.
 
-Central kontroll: main.js fungerar som en central kontroll för appen och hanterar interaktionen mellan olika moduler, vilket gör det möjligt att koordinera flödet mellan funktionerna på ett effektivt sätt.
+<strong>Central kontroll:</strong> Main.js fungerar som en central kontroll för appen och hanterar interaktionen mellan olika moduler, vilket gör det möjligt att koordinera flödet mellan funktionerna på ett effektivt sätt.
 
-Återanvändbarhet och Skalbarhet: Moduler som api.js och helper.js kan återanvändas i andra projekt utan att behöva modifieras, vilket gör appen flexibel och skalbar.
+<strong>Återanvändbarhet och Skalbarhet:</strong> Moduler som api.js och helper.js kan återanvändas i andra projekt utan att behöva modifieras, vilket gör appen flexibel och skalbar.
 
-Felhantering och användarvänlighet: Med hjälp av alert.js har jag försökt säkerställa att användaren får tydliga felmeddelanden vid problem, vilket förbättrar användarupplevelsen.
+<strong>Felhantering och användarvänlighet:</strong> Med hjälp av alert.js har jag försökt säkerställa att användaren får tydliga felmeddelanden vid problem, vilket förbättrar användarupplevelsen.
 
-Separering av logik och presentation: Jag har gjort ett medvetet val att separera logiken (som API-anrop i weather.js och api.js) från presentationen (t.ex. DOM-manipulation i dom.js), vilket gör det lättare att testa och utveckla varje del utan att påverka resten av appen.
+<strong>Separering av logik och presentation: </strong>Jag har gjort ett medvetet val att separera logiken (som API-anrop i weather.js och api.js) från presentationen (t.ex. DOM-manipulation i dom.js), vilket gör det lättare att testa och utveckla varje del utan att påverka resten av appen.
 
 ## Brister
 
-Prestanda: Det finns rum för förbättring vad gäller prestanda, särskilt när det gäller hämtning och visning av bakgrundsbilder i wallpaper.js. För att förbättra prestandan kan jag implementera tekniker som lazy loading eller cachning av bilder.
+<strong>Prestanda:</strong> Det finns rum för förbättring vad gäller prestanda, särskilt när det gäller hämtning och visning av bakgrundsbilder i wallpaper.js. För att förbättra prestandan kan jag implementera tekniker som lazy loading eller cachning av bilder.
 
-Felhantering i API-anrop: Jag har inte implementerat tillräcklig felhantering i alla API-anrop, särskilt i weather.js och api.js. Om en API-tjänst är nere eller om användaren har problem med internetuppkopplingen, bör jag ge användaren mer information om problemet och inte bara låta funktionen misslyckas utan feedback.
+<strong>Felhantering i API-anrop: </strong>Jag har inte implementerat tillräcklig felhantering i alla API-anrop, särskilt i weather.js och api.js. Om en API-tjänst är nere eller om användaren har problem med internetuppkopplingen, bör jag ge användaren mer information om problemet och inte bara låta funktionen misslyckas utan feedback.
 
-Responsivitet: Även om layouten är hyfsat responsiv finns det vissa delar av gränssnittet som inte är optimalt anpassade för mindre enheter. Jag kan förbättra CSS och även lägga till mediequeries för att förbättra användarupplevelsen på alla enheter.
+<strong>Responsivitet:</strong> Även om layouten är hyfsat responsiv finns det vissa delar av gränssnittet som inte är optimalt anpassade för mindre enheter. Jag kan förbättra CSS och även lägga till mediequeries för att förbättra användarupplevelsen på alla enheter.
 
-En stor brist som inte håller i längden av hantering av nycklar. Just nu kan man inte se API nycklarna men anger man lösenordet så får man tillgång till samtliga nycklar. Detta var bara en temporär lösning då jag inte har kunskapen om att "gömma" nycklar. Lösenordet är inte heller krypterat vilket är en säkerhetsaspekt.
+En stor brist som inte håller i längden av hantering av nycklar. Just nu kan man inte se API nycklarna men anger man lösenordet så får man tillgång till samtliga nycklar. Detta var bara en temporär lösning då jag inte har kunskapen om att "gömma" nycklar. Lösenordet är inte heller krypterat vilket är en säkerhetsaspekt. Därav den bristfällig backendservern behövdes det och göra en fetch som upprepar nya försök.
 
 Koden skulle kunna vara mer kommenterad för att göra det lättare för andra att förstå hur olika moduler samverkar. Även om jag har försökt hålla koden ren, saknas det detaljerad dokumentation om varje modul och dess funktion.
 

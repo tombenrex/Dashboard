@@ -15,7 +15,7 @@ const resetApp = () => {
   elements.weather.innerHTML = "<h2>Today Weather</h2>";
   if (elements.videoContainer) elements.videoContainer.innerHTML = "";
   showAlert("LocalStorage has been cleared.");
-  location.reload();
+  setTimeout(() => location.reload(), 3000);
 };
 
 const applyApiKeys = async () => {
@@ -30,7 +30,7 @@ const applyApiKeys = async () => {
       getTechVideo(),
     ]);
     showAlert("API keys applied successfully.", "success");
-location.reload();
+    location.reload();
   }
 };
 

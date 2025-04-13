@@ -15,24 +15,34 @@ export async function fetchApiKeys() {
     alert("Please enter a password.");
     return null;
   }
-  try {
-    const response = await fetch(
-      "https://the-dashboard-backend.onrender.com/api/authenticate",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+
+  const attemptFetch = async (retryCount = 2) => {
+    try {
+      const response = await fetch(
+        "https://the-dashboard-backend.onrender.com/api/authenticate",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ password }),
+        }
+      );
+      const data = await response.json();
+
+      if (data.success) {
+        return data.apiKeys;
       }
-    );
-    const data = await response.json();
-    if (data.success) {
-      return data.apiKeys;
+      alert(data.error || "Authentication failed. Check your password.");
+      return null;
+    } catch (err) {
+      console.error("API key fetch error:", err);
+      if (retryCount > 0) {
+        console.log(`Retrying... (${retryCount} attempts left)`);
+        return attemptFetch(retryCount - 1);
+      }
+      alert("Error connecting to server. Check your connection.");
+      return null;
     }
-    alert(data.error || "Authentication failed. Check your password.");
-    return null;
-  } catch (err) {
-    console.error("API key fetch error:", err);
-    alert("Error connecting to server. Check your connection.");
-    return null;
-  }
+  };
+
+  return await attemptFetch();
 }

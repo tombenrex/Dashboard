@@ -38,17 +38,18 @@
   </head>
   <body>
     <header>
+      <button id="applyApiKeysBtn"><i class="fa-solid fa-key"></i></button>
       <div class="time-container">
         <span id="time"></span>
         <span id="date"></span>
       </div>
     </header>
     <main>
-      <div class="welcome-container">
+      <section class="welcome-container">
         <h1 id="editable">Welcome User</h1>
-      </div>
-      <div class="dash-containers">
-        <div class="container links">
+      </section>
+      <section class="dash-containers">
+        <section class="container links">
           <h2>Shortcuts</h2>
           <div class="button-search">
             <input
@@ -59,10 +60,10 @@
             <button id="add-link-btn"><i class="fa-solid fa-plus"></i></button>
           </div>
           <div id="link-container"></div>
-        </div>
-        <div class="container" id="weather">
+        </section>
+        <section class="container" id="weather">
           <h2>Today Weather</h2>
-        </div>
+        </section>
         <div class="container" id="youtube">
           <h2>Random YT Video</h2>
           <button id="tech-video-btn">Get Random Tech Video</button>
@@ -75,7 +76,7 @@
             placeholder="Write your notes here..."
           ></textarea>
         </div>
-      </div>
+      </section>
     </main>
     <footer>
       <div class="random-bg-container">
@@ -83,10 +84,9 @@
           <i class="fa-solid fa-rotate-right"></i> Generate new background
         </button>
       </div>
-      <div class="btn-container">
-        <button id="resetBtn"><i class="fa-solid fa-eraser"></i></button>
-        <button id="applyApiKeysBtn"><i class="fa-solid fa-key"></i></button>
-      </div>
+      <button id="resetBtn">
+        <i class="fa-solid fa-eraser" title="Erase everything"></i>
+      </button>
     </footer>
   </body>
 </html>
