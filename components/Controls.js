@@ -30,6 +30,7 @@ const applyApiKeys = async () => {
       getTechVideo(),
     ]);
     showAlert("API keys applied successfully.", "success");
+location.reload();
   }
 };
 

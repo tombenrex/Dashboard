@@ -7,7 +7,7 @@ export const setWallpaper = async (
   apiKey = state.get("unsplashApiKey", "")
 ) => {
   if (!apiKey) {
-    showAlert("No Unsplash API key found. Please apply API keys first.");
+    showAlert("No API key found. Please apply password.");
     return;
   }
   try {
